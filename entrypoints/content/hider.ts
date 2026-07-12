@@ -1,6 +1,7 @@
 import { hideAdsSetting, hideReelsSetting, hideStoriesSetting } from "@/utils/settings";
+import { createAdsHider } from "./adsHider";
 
-function createCSSHider(selector: string) {
+export function createCSSHider(selector: string) {
   const style = document.createElement("style");
   style.textContent = `${selector} { display: none !important; }`;
   return {
@@ -21,7 +22,7 @@ export const hiders = [
   },
   {
     setting: hideAdsSetting,
-    hider: createCSSHider("div.x1lliihq:has(div[aria-posinset] :is([data-ad-preview], [data-ad-comet-preview]))"),
+    hider: createAdsHider(),
   },
   {
     setting: hideReelsSetting,
