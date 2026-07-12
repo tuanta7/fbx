@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Switch } from "@/components/Switch";
-import { hideAdsSetting, hideReelsSetting, hideStoriesSetting } from "@/utils/settings";
+import { hideAdsSetting, hideReelsSetting, hideSidebarAdsSetting, hideStoriesSetting } from "@/utils/settings";
 
 const rows = [
   {
@@ -17,6 +17,11 @@ const rows = [
     setting: hideReelsSetting,
     title: "Hide Reels",
     description: "Remove the Reels carousel",
+  },
+  {
+    setting: hideSidebarAdsSetting,
+    title: "Hide Sidebar Ads",
+    description: "Remove sponsored links in the right column",
   },
 ];
 

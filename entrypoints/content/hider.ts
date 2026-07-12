@@ -1,4 +1,4 @@
-import { hideAdsSetting, hideReelsSetting, hideStoriesSetting } from "@/utils/settings";
+import { hideAdsSetting, hideReelsSetting, hideSidebarAdsSetting, hideStoriesSetting } from "@/utils/settings";
 import { createAdsHider } from "./adsHider";
 
 export function createCSSHider(selector: string) {
@@ -27,5 +27,11 @@ export const hiders = [
   {
     setting: hideReelsSetting,
     hider: createCSSHider('div.x1lliihq:has(div[aria-posinset] div[aria-label="Reels"][role="region"])'),
+  },
+  {
+    setting: hideSidebarAdsSetting,
+    // the right-column "Sponsored" module: a bare div wrapping a header
+    // tagged ignore-late-mutation, unique within the complementary rail
+    hider: createCSSHider('div[role="complementary"] div:has(> div > div[data-visualcompletion="ignore-late-mutation"])'),
   },
 ];
