@@ -4,18 +4,20 @@ const supportLinks = [
   {
     label: "Browse my other extensions",
     href: import.meta.env.WXT_CHROME_STORE_URL,
-    icon: <img src="/chrome-store.svg" className="h-3.5 w-3.5 mr-0.5 bg-gray-700 rounded-full" />,
+    icon: <img src="/chrome-store.svg" className="h-4 w-4 mr-1 rounded-full" />,
   },
   {
     label: "Star the project on GitHub",
     href: import.meta.env.WXT_GITHUB_URL,
-    icon: <img src="/github.svg" alt="GitHub" className="h-4 w-4 p-px bg-white rounded-full border border-gray-900" />,
+    icon: (
+      <img src="/github.svg" alt="GitHub" className="h-4 w-4 p-px mr-1 bg-white rounded-full border border-gray-900" />
+    ),
   },
 
   {
     label: "Support me on Ko-fi",
     href: import.meta.env.WXT_KOFI_URL,
-    icon: <img src="/kofi-giphy.webp" alt="Kofi" className="h-5 w-5 -mr-1 rounded-full" />,
+    icon: <img src="/kofi-giphy.webp" alt="Kofi" className="h-5 w-5 -ml-0.3 mr-0.3 rounded-full" />,
   },
 ];
 
@@ -29,7 +31,7 @@ export function Support() {
         onClick={() => setOpen((v) => !v)}
         className="cursor-pointer font-normal text-gray-600 hover:text-[#0866FF] dark:text-gray-300"
       >
-        Enjoying the extension?
+        Enjoying the extension? 🫪
       </button>
       {open && (
         <ul className="mt-2 flex flex-col gap-1.5">

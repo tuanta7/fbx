@@ -1,4 +1,4 @@
-import { hiders } from "./hider";
+import { hiders } from "./hiders";
 
 export default defineContentScript({
   matches: ["*://*.facebook.com/*"],
