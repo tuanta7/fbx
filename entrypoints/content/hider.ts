@@ -15,6 +15,8 @@ export function createCSSHider(selector: string) {
   };
 }
 
+export function createScriptHider() {}
+
 export const hiders = [
   {
     setting: hideStoriesSetting,
@@ -30,8 +32,8 @@ export const hiders = [
   },
   {
     setting: hideSidebarAdsSetting,
-    // the right-column "Sponsored" module: a bare div wrapping a header
-    // tagged ignore-late-mutation, unique within the complementary rail
-    hider: createCSSHider('div[role="complementary"] div:has(> div > div[data-visualcompletion="ignore-late-mutation"])'),
+    hider: createCSSHider(
+      'div[role="complementary"] div:has(> div > div[data-visualcompletion="ignore-late-mutation"])',
+    ),
   },
 ];

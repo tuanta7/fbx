@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Switch } from "@/components/Switch";
+import { Support } from "@/components/Support";
 import { hideAdsSetting, hideReelsSetting, hideSidebarAdsSetting, hideStoriesSetting } from "@/utils/settings";
 
 const rows = [
@@ -42,13 +43,14 @@ function App() {
 
   return (
     <div className="w-full bg-white dark:bg-[#18191A]">
-      <header className="flex items-center gap-2 bg-linear-to-r from-[#0064E0] to-[#0082FB] px-3 py-2">
-        <img src="/logo.png" alt="" className="h-5 w-5" />
+      <header className="flex items-center gap-3 px-3 py-2">
+        <img src="/logo.png" alt="logo" className="w-7 h-auto py-1" />
         <div>
-          <span className="text-sm font-bold text-white">FBx</span>
-          <p className="text-xs text-white/80">Hide ads, reels and more</p>
+          <span className="text-xs font-bold ">FBx</span>
+          <p className="text-xs ">Hide ads, reels and more</p>
         </div>
       </header>
+
       <main className="py-1">
         {rows.map((row, i) => (
           <label
@@ -63,6 +65,17 @@ function App() {
           </label>
         ))}
       </main>
+
+      <div className="flex items-center justify-between p-3 text-xs text-gray-400 dark:text-gray-500">
+        <p>
+          Something not working?{" "}
+          <a href={`mailto:${import.meta.env.WXT_CONTACT_EMAIL}`} className="text-[#0866FF] hover:underline">
+            Email me
+          </a>
+        </p>
+        <span>v{import.meta.env.WXT_APP_VERSION}</span>
+      </div>
+      <Support />
     </div>
   );
 }
