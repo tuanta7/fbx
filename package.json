@@ -1,8 +1,9 @@
 {
-  "name": "FBx - Simpler Facebook",
+  "name": "FBx - Cleaner Newsfeed",
   "description": "manifest.json description",
   "private": true,
   "version": "0.0.0",
+  "packageManager": "pnpm@11.12.0",
   "type": "module",
   "scripts": {
     "dev": "wxt",
