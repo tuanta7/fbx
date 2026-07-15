@@ -29,9 +29,9 @@ export function Support() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="cursor-pointer font-normal text-gray-600 hover:text-[#0866FF] dark:text-gray-300"
+        className="flex cursor-pointer items-center gap-1 font-normal text-gray-600 hover:text-[#0866FF] dark:text-gray-300"
       >
-        Enjoying the extension? 🫪
+        Enjoying the extension? <img src="/distorted-face.svg" alt="🫪" className="h-4 w-4" />
       </button>
       {open && (
         <ul className="mt-2 flex flex-col gap-1.5">
