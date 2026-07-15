@@ -1,6 +1,6 @@
 {
   "name": "FBx - Cleaner Newsfeed",
-  "description": "manifest.json description",
+  "description": "🧩 Facebook without the noise. No ads, no reels, just what you want to see.",
   "private": true,
   "version": "0.0.0",
   "packageManager": "pnpm@11.12.0",
