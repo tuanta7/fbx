@@ -44,7 +44,7 @@ function App() {
   return (
     <div className="w-full bg-white dark:bg-[#18191A]">
       <header className="flex items-center gap-3 px-3 py-2">
-        <img src="/logo.png" alt="logo" className="w-7 h-auto py-1" />
+        <img src="/icon/128.png" alt="logo" className="w-7 h-auto py-1" />
         <div>
           <span className="text-xs font-bold ">FBx</span>
           <p className="text-xs ">Hide ads, reels and more</p>

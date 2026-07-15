@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/logo.png" alt="FBx logo" width="96" />
+  <img src="public/icon/128.png" alt="FBx logo" width="96" />
 </p>
 
 <h1 align="center">FBx - Clean Facebook Feed</h1>
