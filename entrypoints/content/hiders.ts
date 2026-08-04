@@ -6,7 +6,9 @@ import { hideAdsSetting, hideReelsSetting, hideSidebarAdsSetting, hideStoriesSet
 // reordered visually with CSS `order`. data-ad-* attributes show up on normal
 // posts too, so this label is the only reliable proof of an ad. Comparing the
 // visible letters order-insensitively skips getComputedStyle entirely.
-const sortLetters = (text: string) => [...text.replace(/\s/g, "")].sort().join("");
+// Each letter is also padded with invisible filler (U+034F, zero-widths, BOM).
+const sortLetters = (text: string) =>
+  [...text.replace(/[\s\u034F\u200B-\u200F\u2060\uFEFF]/g, "")].sort().join("");
 const AD_LABELS = new Set(["Ad", "Sponsored", "Được tài trợ", "Publicidad", "Anuncio"].map(sortLetters));
 
 function isSponsored(post: HTMLElement) {
