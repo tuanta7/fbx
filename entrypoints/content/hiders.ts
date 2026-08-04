@@ -1,11 +1,12 @@
 import { createCSSHider, createScriptHider } from "@/utils/hider";
 import { hideAdsSetting, hideReelsSetting, hideSidebarAdsSetting, hideStoriesSetting } from "@/utils/settings";
 
+// Updated: August 2026
 // FB obfuscates the "Sponsored"/"Ad" label as scrambled single-letter spans:
 // decoy letters sit offscreen via inline position:absolute, the real ones are
-// reordered visually with CSS `order`. data-ad-* attributes show up on normal
-// posts too, so this label is the only reliable proof of an ad. Comparing the
-// visible letters order-insensitively skips getComputedStyle entirely.
+// reordered visually with CSS `order`.
+// This label is the only reliable proof of an ad. 
+// Comparing the visible letters order-insensitively skips getComputedStyle entirely.
 // Each letter is also padded with invisible filler (U+034F, zero-widths, BOM).
 const sortLetters = (text: string) =>
   [...text.replace(/[\s\u034F\u200B-\u200F\u2060\uFEFF]/g, "")].sort().join("");
