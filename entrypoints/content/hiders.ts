@@ -10,13 +10,17 @@ import { hideAdsSetting, hideReelsSetting, hideSidebarAdsSetting, hideStoriesSet
 // Each letter is also padded with invisible filler (U+034F, zero-widths, BOM).
 const sortLetters = (text: string) =>
   [...text.replace(/[\s\u034F\u200B-\u200F\u2060\uFEFF]/g, "")].sort().join("");
-const AD_LABELS = new Set(["Ad", "Sponsored", "Được tài trợ", "Publicidad", "Anuncio"].map(sortLetters));
+const AD_LABELS = new Set(
+  ["Ad", "Sponsored", "Được tài trợ", "Publicidad", "Anuncio", "Commandité", "Sponsorisé"].map(sortLetters),
+);
 
 function isSponsored(post: HTMLElement) {
   for (const label of post.querySelectorAll<HTMLElement>('a span[style*="flex"]')) {
-    const visibleText = [...label.children]
-      .filter((s): s is HTMLElement => s instanceof HTMLElement && s.style.position !== "absolute")
-      .map((s) => s.textContent)
+    // childNodes, not children: an unscrambled label ("Ad") is a bare text node.
+    // Elements pass unless they're offscreen decoys; non-elements only if text.
+    const visibleText = [...label.childNodes]
+      .filter((n) => (n instanceof HTMLElement ? n.style.position !== "absolute" : n.nodeType === Node.TEXT_NODE))
+      .map((n) => n.textContent)
       .join("");
     if (AD_LABELS.has(sortLetters(visibleText))) return true;
   }
